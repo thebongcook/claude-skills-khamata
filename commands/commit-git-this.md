@@ -4,8 +4,10 @@ Your task is to help the user to generate a commit message and commit the change
 ## Guidelines
 
 - DO NOT add any ads such as "Generated with [Claude Code](https://claude.ai/code)"
-- Identify the files that were created or modified during this chat session and stage them using `git add <file>`.
-- Only stage files that were part of this conversation's changes — do not stage unrelated modifications.
+- Identify the files that were created or modified during this chat session.
+- Only stage changes that were part of this conversation — do not stage unrelated modifications or pre-existing uncommitted changes.
+- For files **created entirely** by this session, stage them with `git add <file>`.
+- For files that **already existed and were modified** during this session, run `git diff <file>` first to review all hunks. Then use `git add -p <file>` to interactively stage **only** the hunks from this session. Skip any pre-existing or unrelated hunks.
 - Generate the commit message based on the changes you staged.
 - Follow the rules below for the commit message.
 
